@@ -1,4 +1,4 @@
-# Getting Started with Create React App
+# NFT MARKETPLACE - 2022 🍇 iv7.dev
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
