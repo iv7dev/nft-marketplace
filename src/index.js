@@ -1,3 +1,6 @@
+/* © BacoFinance 2022 by Baco Group */
+/* ENTRY POINT index.js -> app.js -> components (header, body, footer) */ 
+
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
