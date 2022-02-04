@@ -1,12 +1,13 @@
-/* © BacoFinance 2022 by Baco Group */
+/* © BacoFinance 2022 by Iv7.dev */
 import './App.css';
-import CollectionCard from './components/CollectionCard';
+import PunkList from './components/PunkList';
 import Header from './components/Header';
+import Main from './components/Main';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 
 function App() {
-  
+  // retrieve data to opensea 
   const [punkListData, setPunkListData] = useState([]);
   useEffect(() => {
       const getMyNfts = async () => {
@@ -21,12 +22,8 @@ function App() {
     <div className='app'>
 
         <Header />
-        <CollectionCard 
-                id={0} 
-                name={'King Punk'} 
-                traits={[{'value': 10}]} 
-                image='https://gateway.pinata.cloud/ipfs/QmUyVfNR7XWPBDi5TRP2nmQGcTXqYutu1Bh9cTvYY7TH3R'
-        />
+        <Main />
+        <PunkList punkListData = { punkListData } />
     
     </div>
   );

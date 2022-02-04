@@ -1,4 +1,4 @@
-/* © BacoFinance 2022 by Baco Group */
+/* © BacoFinance 2022 by Iv7.dev */
 import React from "react";
 import "./Header.css";
 import punkLogo from "../assets/header/cryptopunk-logo.png";
