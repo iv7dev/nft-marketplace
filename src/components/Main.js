@@ -1,10 +1,15 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./Main.css";
 import instagramLogo from "../assets/owner/instagram.png";
 import twitterLogo from "../assets/owner/twitter.png";
 import moreLogo from "../assets/owner/more.png";
 
-const Main = () => {
+const Main = ({ selectedPunk, punkListData }) => {
+  const [ activePunk, setActivePunk ] = useState(punkListData[0]);
+  useEffect( () => {
+    setActivePunk(punkListData[selectedPunk])
+  }, [punkListData, selectedPunk])
+
   return (
     <div className="main">
       
@@ -13,33 +18,28 @@ const Main = () => {
           <div className="punkContainer">
             <img
               className="selectedPunk"
-              src={
-                "https://lh3.googleusercontent.com/WrmpbMJMKmGfjJRCu2b0Bp_Pk2iPZcuRXyqPj7p3-I19DKHlIluigjdiwsnUZA28ssIQcydOnYgD2f6Qra05gFMZHWuojV1JSbM"
-              }
-              // {activePunk.image_original_url}
+              src={activePunk.image_preview_url}
               alt=""
             />
           </div>
         </div>
 
         <div className="punkDetails" style={{ color: "#ffff" }}>
-          <div className="title">Bandana Punk {/* { activePunk.name } */}</div>
-          <span className="itemNumber">*# 4 </span>
+          <div className="title">{ activePunk.name } </div>
+          <span className="itemNumber"># { activePunk.token_id }</span>
         </div>
         <div className="owner">
           <div className="ownerImageContainer">
             <img
-              src={
-                "https://lh3.googleusercontent.com/WrmpbMJMKmGfjJRCu2b0Bp_Pk2iPZcuRXyqPj7p3-I19DKHlIluigjdiwsnUZA28ssIQcydOnYgD2f6Qra05gFMZHWuojV1JSbM"
-              }
+              src={ activePunk.owner.profile_img_url } 
               alt=""
             />
           </div>
           
           <div className="ownerDetails">
             <div className="ownerNameAndHandle">
-              <div>0xa188997d5Aa1D922BaCA4D44eEa5DE1ad70e9130</div>
-              <div className="ownerHandle">@sarazastore</div>
+              <div>{ activePunk.owner.address }</div>
+              <div className="ownerHandle">{ activePunk.owner.username }</div>
             </div>
             <div className="ownerLink">
               <img src={instagramLogo} alt="" />
@@ -58,3 +58,5 @@ const Main = () => {
 };
 
 export default Main;
+
+2:37

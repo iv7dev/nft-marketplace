@@ -9,6 +9,8 @@ import axios from 'axios';
 function App() {
   // retrieve data to opensea 
   const [punkListData, setPunkListData] = useState([]);
+  const [selectedPunk, setSelectedPunk] = useState(0);
+
   useEffect(() => {
       const getMyNfts = async () => {
         const openseaData = await axios.get('https://testnets-api.opensea.io/assets?asset_contract_address=0x5A027A1F234a9499a8eAf308a9d318794633d2A8&order_direction=asc') // Address collection contract
@@ -22,9 +24,12 @@ function App() {
     <div className='app'>
 
         <Header />
-        <Main />
-        <PunkList punkListData = { punkListData } />
-    
+        { punkListData.length > 0 && (
+          <>
+            <Main punkListData = { punkListData } selectedPunk = {selectedPunk} />
+            <PunkList punkListData = { punkListData } setSelectedPunk = {setSelectedPunk} />
+          </>
+        )}
     </div>
   );
 }
